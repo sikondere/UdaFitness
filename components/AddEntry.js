@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { View, TouchableOpacity, Text} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { getMetricMetaInfo, timeToString } from '../utils/helpers';
 import UdaSlider from './UdaSlider';
 import UdaStepper from './UdaStepper';
 import DateHeader from './DateHeader';
+import TextButton from './TextButton';
 
 function SubmitButton({ onPress }) {
     return (
@@ -65,8 +67,33 @@ export default class AddEntry extends Component {
         }))
     };
 
+    reset = () => {
+        const key = timeToString();
+
+        //update redux
+
+        //route to home
+
+        //update db
+    }
+
     render() {
         const metaInfo = getMetricMetaInfo();
+
+        if(this.props.alreadyLogged) {
+            return (
+                <View>
+                    <Ionicons 
+                        name='ios-happy-outline'
+                        size={100}
+                    />
+                    <Text>you already logged your information today</Text>
+                    <TextButton onPress={this.reset}>
+                        Reset
+                    </TextButton>
+                </View>
+            );
+        }
 
         return (
             <View>
