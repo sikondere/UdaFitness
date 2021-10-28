@@ -2,7 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { red, orange, blue, lightPurp, pink, white } from './colors';
-
+import {Agenda as UdaciFitnessCalendar } from 'react-native-calendars';
+ 
 const styles = StyleSheet.create({
   iconContainer: {
     padding: 5,
@@ -133,8 +134,8 @@ export function isBetween (num, x, y) {
     return todayUTC.toISOString().split('T')[0]
   }
 
-  export function getDailyRemiindervalue() {
-    return {
+  export function getDailyReminderValue() {
+    return[{
       today: 'dont forget to log your data today',
-    }
+    }]
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, Platform, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
-import { getMetricMetaInfo, timeToString, getDailyRemiindervalue } from '../utils/helpers';
+import { getMetricMetaInfo, timeToString, getDailyReminderValue } from '../utils/helpers';
 import UdaSlider from './UdaSlider';
 import UdaStepper from './UdaStepper';
 import DateHeader from './DateHeader';
@@ -33,7 +33,7 @@ class AddEntry extends Component {
 
     submit = () => {
         const key = timeToString();
-        const entry = this.state
+        const entry = [this.state]
 
         //update redux
         this.props.dispatch(addEntry({
@@ -81,7 +81,7 @@ class AddEntry extends Component {
 
         //update redux
         this.props.dispatch(addEntry({
-            [key]: getDailyRemiindervalue()
+            [key]: getDailyReminderValue()
         }))
 
         //route to home
